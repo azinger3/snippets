@@ -28,7 +28,13 @@ Personal Code Snippets
     scp -r pi@10.40.7.142:~ /Users/razinger/Downloads
 
 ## Daemonix Logs
-    var test = 'yo bitch';
+    ssh razinger-a@jfbelsvmlxnjs00
+    sudo su
+    cd /opt/var/log/qa1-stride
+    tail -f app.log
+    cp /opt/var/log/qa1-stride/app.log ~/tmp/
+    sudo chown razinger-a:domain^users ~/tmp/app.log
+    scp -r razinger-a@jfbelsvmlxnjs00:~/tmp/app.log /Users/razinger/Downloads
 
 ## Mac Host File
     sudo nano /etc/hosts
