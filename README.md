@@ -3,13 +3,17 @@
 Personal Code Snippets
 ## Title 2
     var test = 'yo bitch';
-## Title 2
-    var test = 'yo bitch';
-## Title 2
-    var test = 'yo bitch';
-## Title 2
-    var test = 'yo bitch';
-## Title 2
+
+## Install SSH Key on Server
+    ssh-copy-id pi@10.40.7.142
+
+## SCP Upload
+    scp -r build pi@10.40.7.142:/opt/apps/evolve-ss
+
+## SCP Download
+    scp -r pi@10.40.7.142:~ /Users/razinger/Downloads
+
+## Daemonix Logs
     var test = 'yo bitch';
 
 ## Mac Host File
