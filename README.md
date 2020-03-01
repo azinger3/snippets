@@ -2,10 +2,10 @@
 
 Personal Code Snippets
 
-## cURL HTTP GET
+## cURL - HTTP GET
     curl -k -X GET https://cron-fc.justfab.net/uptime
 
-## cURL JSON-RPC
+## cURL - JSON-RPC
     curl -k -H "Content-Type: application/json" -H "x-auth-token: wmssys" -X POST -d '{"jsonrpc": "2.0","method": "fc.pick.getPendingPicks","id": 17,"params": {"warehouseid": 107}}' https://qa1-fc-fling.fc.techstyle.tech/rpc/
 
 ## Local FTP
@@ -27,11 +27,16 @@ Personal Code Snippets
 ## SCP Download
     scp -r pi@10.40.7.142:~ /Users/razinger/Downloads
 
-## Daemonix Logs
+## View Daemonix Logs
     ssh razinger-a@jfbelsvmlxnjs00
     sudo su
     cd /opt/var/log/qa1-stride
     tail -f app.log
+
+## Download Daemonix Logs
+    ssh razinger-a@jfbelsvmlxnjs00
+    sudo su
+    cd /opt/var/log/qa1-stride
     cp /opt/var/log/qa1-stride/app.log ~/tmp/
     sudo chown razinger-a:domain^users ~/tmp/app.log
     scp -r razinger-a@jfbelsvmlxnjs00:~/tmp/app.log /Users/razinger/Downloads
@@ -39,7 +44,7 @@ Personal Code Snippets
 ## Mac Host File
     sudo nano /etc/hosts
 
-## Remove .DS_Store
+## Remove .DS_Store from Directory
     find . -name '.DS_Store' -type f -delete
 
 ## Regex Parse - In Between 2 Characters
