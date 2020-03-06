@@ -2,6 +2,22 @@
 
 Personal Code Snippets
 
+## Evolve SQL Server DNS
+	C:\Windows\system32>setspn -L SVC_SQL_DBP40
+		Registered ServicePrincipalNames for CN=SVC_SQL_DBP40,OU=Service Accounts,OU=DB_Ops,OU=Tech_Team_OUs,DC=corp,DC=brandideas,DC=com:
+        MSSQLSvc/TFGELSPM16DBP41.corp.brandideas.com
+        MSSQLSvc/TFGELSPM16DBP41.corp.brandideas.com:1433
+        MSSQLSvc/dyngp.colo.brandideas.com
+        MSSQLSvc/dyngp.colo.brandideas.com:1433
+        MSSQLSvc/jfbtsnsql52.colo.brandideas.com
+        MSSQLSvc/jfbtsnsql52.colo.brandideas.com:1433
+        MSSQLSvc/uwserver.colo.brandideas.com:1433
+        MSSQLSvc/uwserver.colo.brandideas.com
+        MSSQLSvc/TFGELSEVOLVE01.corp.brandideas.com
+        MSSQLSvc/TFGELSEVOLVE01.corp.brandideas.com:1433
+        MSSQLSvc/TFGELSPM16DBP40.corp.brandideas.com:1433
+        MSSQLSvc/TFGELSPM16DBP40.corp.brandideas.com
+
 ## cURL - HTTP GET
     curl -k -X GET https://cron-fc.justfab.net/uptime
 
