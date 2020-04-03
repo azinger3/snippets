@@ -2,6 +2,18 @@
 
 Personal Code Snippets
 
+## Docker Repo Access
+    # Login
+    docker login https://snpm-docker-qa.techstyle.net
+
+    # Build / Tag
+    docker build . -t snpm-docker-qa.techstyle.net/qa/evolve/evolve-fc-fling/feature-wms-6684:latest
+
+    •	Note the path is important as it’ll help organize the location of the images in the repo. It can be whatever we want, but lets follow a guideline when using
+
+    # Push
+    docker image push snpm-docker-qa.techstyle.net/qa/evolve/evolve-fc-fling/feature-wms-6684:latest
+
 ## Evolve SQL Server DNS
 	C:\Windows\system32>setspn -L SVC_SQL_DBP40
 		Registered ServicePrincipalNames for CN=SVC_SQL_DBP40,OU=Service Accounts,OU=DB_Ops,OU=Tech_Team_OUs,DC=corp,DC=brandideas,DC=com:
