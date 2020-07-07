@@ -2,6 +2,14 @@
 
 Personal Code Snippets
 
+## Graylog Searches
+    # String
+    params:*\"tool\"\:\"po\"*
+
+    # Int/Boolean
+    params:*\"typecodeid\"\:267*
+    params:*\"iscorrection\"\:false*
+
 ## Docker Repo Access
     # Login
     docker login https://snpm-docker-qa.techstyle.net
