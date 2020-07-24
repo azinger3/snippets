@@ -69,6 +69,11 @@ Personal Code Snippets
     cd /opt/var/log/qa1-stride
     tail -f app.log
 
+## View EU shipping Logs
+    ssh razinger-a@tfgelsvmlxeeu01 -p 2200
+    sudo su
+    tail -f /var/log/upstart/ezlabel-eu.log
+
 ## Download Daemonix Logs
     ssh razinger-a@jfbelsvmlxnjs00
     sudo su
