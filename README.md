@@ -2,6 +2,11 @@
 
 Personal Code Snippets
 
+## Directory File List to Text
+    # Windows
+    cd C:\MyDoc\Workspace\Projects\Reverse Replen\SQL
+    dir *.sql /b > filelist.txt
+
 ## Graylog Searches
     # String
     params:*\"tool\"\:\"po\"*
