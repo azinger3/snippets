@@ -9,6 +9,10 @@ Personal Code Snippets - staging test1
     # Int/Boolean
     params:*\"typecodeid\"\:267*
     params:*\"iscorrection\"\:false*
+
+## Recompile Stored Procedure
+    ssh razinger-a@JFBELSVMLXADM01
+    adminrecompile pr_initial_scan_case_order_inventory_V2_sel
 	
 ## Mac Timezone Development Setup
 	[11:46 AM] David Brooks
