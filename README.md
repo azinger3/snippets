@@ -4,8 +4,7 @@ Personal Code Snippets - staging test1
 
 ## New jsonrpc method
     Module.prototype.methodName = function (request, response) {
-        let self = this;
-        let tasks = [];
+        const self = this;
 
         // params
         request.setParams(Object.assign({
@@ -39,14 +38,14 @@ Personal Code Snippets - staging test1
             return;
         }
 
-        tasks.push((done) => { // step 1
-            done(null, {
-                stub: "stub",
-                params: request.getParams()
-            })
-        });
-
-        async.waterfall(tasks, (err, result) => { // response
+        async.waterfall([
+            (done) => { // step 1
+                done(null, {
+                    stub: "stub",
+                    params: request.getParams()
+                })
+            }
+        ], (err, result) => { // response
             if (err) {
                 return response.send(err);
             }
