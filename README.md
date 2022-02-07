@@ -2,6 +2,137 @@
 
 Personal Code Snippets
 
+## New jsonrpc async
+    async.waterfall([
+        (done) => { // get dock door divert
+            _getDivertByLocation(
+                self,
+                locationId,
+                agent,
+                response,
+                (err, data) => {
+                    if (err) {
+                        return done(err);
+                    }
+
+                    done(null, data);
+                }
+            );
+        },
+        (wcsDivertId, done) => { // get divert carrier services
+            if (!wcsDivertId) {
+                return done(null, []);
+            }
+
+            _getDivertCarrierServices(
+                self,
+                wcsDivertId,
+                agent,
+                response,
+                (err, data) => {
+                    if (err) {
+                        return done(err);
+                    }
+
+                    done(null, data);
+                }
+            );
+        },
+        (divertCarrierServices, done) => { // compare divert to container services
+            if (!divertCarrierServices.length) {
+                return done(null, true);
+            }
+
+            let carrierFound = false;
+
+            divertCarrierServices.forEach((d) => {
+                containerCarrierServices.forEach((c) => {
+                    if (d === c) {
+                        carrierFound = true;
+                    }
+                });
+            });
+
+            done(null, carrierFound);
+        },
+        (carrierFound, done) => { // validate
+            if (!carrierFound) {
+                response.addError(500, `Carrier does not match chute.`);
+                return done('fail');
+            } else {
+                done(null);
+            }
+        }
+    ], function (err) {
+        done(err);
+    });
+
+## New jsonrpc wrapper
+    function _getOutboundRoute(self, warehouseId, agent, response, done) {
+        self._rpc({
+            method: 'fc.transload.getRoute',
+            params: {
+                warehouseid: warehouseId,
+                typecodeid: 1321 // outbound
+            },
+            context: agent
+        }, (err, data) => {
+            if (err) {
+                response.addError(err);
+                return done(err);
+            }
+
+            done(null, data);
+        });
+    }
+
+## New jsonrpc sql list
+    function _getCarrierServicesForPallet(self, warehouseId, carrierServiceId, response, done) {
+        const sql = self._db.request('ultrawarehouse');
+
+        if (!sql) {
+            response.addError(500, 'database unavailable');
+            done('fail');
+            return;
+        }
+
+        sql.input('warehouse_id', self._db.types.Int, warehouseId);
+        sql.input('carrier_service_id', self._db.types.Int, carrierServiceId);
+
+        sql.execute('dbo.pr_yard_carrier_service_by_carrier_service_lst', (err, recordsets) => {
+            if (err) {
+                response.addError({
+                    code: 500,
+                    message: 'error executing database query',
+                    data: {
+                        _proc: 'dbo.pr_yard_carrier_service_by_carrier_service_lst',
+                        err: err
+                    }
+                });
+
+                return done('fail');
+            }
+
+            let result = {};
+            let carrierServices = [];
+
+            // carrier services
+            result = {
+                carrierServices: []
+            }
+
+            if (recordsets[0].length > 0) {
+                recordsets[0].forEach((carrierService) => {
+                    carrierServices.push(carrierService.carrier_service_id);
+                });
+
+                result.carrierServices = carrierServices;
+            }
+
+            done(null, result);
+        });
+    }
+
 ## New jsonrpc sql read
     function _getPallet(self, pallet, warehouseId, response, done) {
         const sql = self._db.request('ultrawarehouse');
