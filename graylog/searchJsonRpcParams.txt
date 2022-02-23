@@ -1,0 +1,6 @@
+# String
+params:*\"tool\"\:\"po\"*
+
+# Int/Boolean
+params:*\"typecodeid\"\:267*
+params:*\"iscorrection\"\:false*

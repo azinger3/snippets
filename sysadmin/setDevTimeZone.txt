@@ -1,0 +1,8 @@
+[11:46 AM] David Brooks
+    so i think this "trick" works for all macs, if you work with dates and want to make sure the timezone conversions are "working" as expected, we have a couple different routes
+​[11:46 AM] David Brooks
+    a) change your local timezone (PITA)
+​[11:47 AM] David Brooks
+    b) build docker and run via docker (all of our docker files set timezone to PST)
+​[11:47 AM] David Brooks
+    c) for Macs, set the timezone on the command line: TZ='US/Pacific' node server.js

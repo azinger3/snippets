@@ -1,0 +1,10 @@
+# Login
+docker login https://snpm-docker-qa.techstyle.net
+
+# Build / Tag
+docker build . -t snpm-docker-qa.techstyle.net/qa/evolve/evolve-fc-fling/feature-wms-6684:latest
+
+•	Note the path is important as it’ll help organize the location of the images in the repo. It can be whatever we want, but lets follow a guideline when using
+
+# Push
+docker image push snpm-docker-qa.techstyle.net/qa/evolve/evolve-fc-fling/feature-wms-6684:latest

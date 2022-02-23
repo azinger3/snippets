@@ -1,0 +1,2 @@
+docker run -p 2222:22 -d atmoz/sftp foo:pass:::EZ_Europe
+docker run -p 2223:22 -d atmoz/sftp foo:pass:::bleckmann

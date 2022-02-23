@@ -1,0 +1,1 @@
+scp -r razinger-a@jfbelsvmlxnjs13:/opt/apps/evolve-upload-api/tmp /Users/razinger/Downloads

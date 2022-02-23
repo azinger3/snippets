@@ -1,0 +1,2 @@
+ssh razinger-a@JFBELSVMLXADM01
+adminrecompile pr_initial_scan_case_order_inventory_V2_sel
