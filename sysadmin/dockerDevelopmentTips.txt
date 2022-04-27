@@ -1,0 +1,54 @@
+DEVELOPMENT COMMANDS:
+
+## To start developing ##
+ 
+cd <your_projects_folder>
+ 
+docker build --file Dockerfile . --tag <project>:<branch>
+ 
+docker run -e NODE_ENV=development --publish <host_port>:<container_port> <project>:<branch>
+
+
+LOCAL ENVIRONMENT MAINTENANCE:
+
+## Image list ##
+ 
+docker images -a
+ 
+ 
+## Clean up images on machine ##
+ 
+docker rmi -f $(docker images -a)
+ 
+ 
+## Container list ##
+ 
+docker ps -a
+ 
+ 
+## Clean up containers on machine ##
+ 
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+ 
+ 
+## Get a bash shell in the container ##
+ 
+docker exec -it <container_id> /bin/bash
+
+
+DEBUGGING TIPS:
+
+For IDE debugging and step-through functionality, it's still OK to run the app on your local machine (as apposed to a container).
+
+A example of debugging fc-fling locally running on Node 10 lts:
+
+1. nvm install 10 --lts
+
+2. npm install
+
+3. node server.js
+
+4. VS Code - Debug
+
+5. VS Code - Attach to Process ID
