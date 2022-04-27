@@ -2,11 +2,11 @@ DEVELOPMENT COMMANDS:
 
 ## To start developing ##
  
-cd <your_projects_folder>
+cd myrepo
  
-docker build --file Dockerfile . --tag <project>:<branch>
- 
-docker run -e NODE_ENV=development --publish <host_port>:<container_port> <project>:<branch>
+docker build . -t myrepo:mybranch
+
+docker run --rm -i -t -e NODE_ENV=myenv -p myhostport:mycontainerport myrepo:mybranch
 
 
 LOCAL ENVIRONMENT MAINTENANCE:
