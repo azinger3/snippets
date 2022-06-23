@@ -1,3 +1,0 @@
-ssh razinger-a@tfgelsvmlxeeu01 -p 2200
-sudo su
-tail -f /var/log/upstart/ezlabel-eu.log

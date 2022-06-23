@@ -3,29 +3,19 @@ Module.prototype.methodName = function (request, response) {
 
     // params
     request.setParams(Object.assign({
-        lpn: '',
-        item: '',
-        case: '',
-        warehouseid: 0
+        paramstring: '',
+        paramint: 0
     }, request.getParams()));
 
-    request.getParams().warehouseid = parseInt(request.getParams().warehouseid);
+    request.getParams().paramint = parseInt(request.getParams().paramint);
 
     // validate
-    if (!request.getParams().lpn.trim()) {
-        response.addError(500, 'lpn is missing');
+    if (!request.getParams().paramstring.trim()) {
+        response.addError(500, 'paramstring is missing');
     }
 
-    if (!request.getParams().item.trim()) {
-        response.addError(500, 'item is missing');
-    }
-
-    if (!request.getParams().case.trim()) {
-        response.addError(500, 'case is missing');
-    }
-
-    if (!request.getParams().warehouseid) {
-        response.addError(500, 'warehouseid is missing');
+    if (!request.getParams().paramint) {
+        response.addError(500, 'paramint is missing');
     }
 
     if (!response.isSuccess()) {

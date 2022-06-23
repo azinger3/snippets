@@ -1,1 +1,0 @@
-curl -k -H "Content-Type: application/json" -H "x-auth-token: wmssys" -X POST -d '{"jsonrpc": "2.0","method": "fc.pick.getPendingPicks","id": 17,"params": {"warehouseid": 107}}' https://qa1-fc-fling.fc.techstyle.tech/rpc/

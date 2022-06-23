@@ -1,0 +1,6 @@
+# String
+params:*\"string\"\:\"keyword\"*
+
+# Int/Boolean
+params:*\"id\"\:267*
+params:*\"boolean\"\:false*

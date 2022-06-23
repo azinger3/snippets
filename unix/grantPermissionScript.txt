@@ -1,1 +1,0 @@
-chmod u+x /Users/razinger/Desktop/MyDev/Planner/ConnectToServer.command

@@ -1,4 +1,0 @@
-ssh razinger-a@jfbelsvmlxnjs00
-sudo su
-cd /opt/var/log/qa1-stride
-tail -f app.log

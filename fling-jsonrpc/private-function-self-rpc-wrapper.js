@@ -1,9 +1,9 @@
-function _getOutboundRoute(self, warehouseId, agent, response, done) {
+function _getJsonRpcWrapper(self, param1, agent, response, done) {
     self._rpc({
-        method: 'fc.transload.getRoute',
+        method: 'namespace.module.method',
         params: {
-            warehouseid: warehouseId,
-            typecodeid: 1321 // outbound
+            param1: param1,
+            param2: 0
         },
         context: agent
     }, (err, data) => {
