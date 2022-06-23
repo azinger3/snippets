@@ -35,20 +35,3 @@ docker rm $(docker ps -a -q)
 ## Get a bash shell in the container ##
  
 docker exec -it <container_id> /bin/bash
-
-
-DEBUGGING TIPS:
-
-For IDE debugging and step-through functionality, it's still OK to run the app on your local machine (as apposed to a container).
-
-A example of debugging fc-fling locally running on Node 10 lts:
-
-1. nvm install 10 --lts
-
-2. npm install
-
-3. node server.js
-
-4. VS Code - Debug
-
-5. VS Code - Attach to Process ID
